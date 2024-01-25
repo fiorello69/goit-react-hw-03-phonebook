@@ -13,7 +13,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // La încărcarea componentei, verificăm dacă există date în localStorage
     const storedContacts = localStorage.getItem('contacts');
     if (storedContacts) {
       this.setState({ contacts: JSON.parse(storedContacts) });
@@ -21,9 +20,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // La actualizarea componentei, verificăm dacă s-au schimbat contactele
     if (this.state.contacts !== prevState.contacts) {
-      // Actualizăm localStorage cu noile date ale contactelor
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }
